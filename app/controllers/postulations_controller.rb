@@ -1,0 +1,2 @@
+class PostulationsController < ApplicationController
+end
