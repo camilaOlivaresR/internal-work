@@ -12,5 +12,5 @@ class User < ApplicationRecord
 
          has_many :publications, dependent: :destroy
          has_many :postulations, dependent: :destroy
-         has_one_attached :avatar, dependent: :destroy
+         has_one_attached :image, dependent: :destroy
 end

@@ -1,6 +1,7 @@
 class PublicationsController < ApplicationController
   before_action :set_publication, only: %i[ show edit update destroy ]
-  before_action :set_picture, only: %i[ show edit update destroy ]
+  before_action :set_publication, only: %i[ show edit update destroy ]
+  
   before_action only: [:new, :create] do
     authorize_request([ "admin"])
   end
@@ -13,7 +14,7 @@ class PublicationsController < ApplicationController
   # GET /publications/1 or /publications/1.json
   def show
     @postulation = Postulation.new
-    @postulation = @publication.postulation
+    @postulation = @publication.postulations
   end
 
   # GET /publications/new
@@ -28,7 +29,7 @@ class PublicationsController < ApplicationController
   # POST /publications or /publications.json
   def create
     @publication = Publication.new(publication_params)
-    @publication = current_user.ppublications.build(publication_params)
+    @publication = current_user.publications.build(publication_params)
 
     respond_to do |format|
       if @publication.save
