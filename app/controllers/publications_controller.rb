@@ -1,6 +1,5 @@
 class PublicationsController < ApplicationController
-  before_action :set_publication, only: %i[ show edit update destroy ]
-  before_action :set_publication, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
   
   before_action only: [:new, :create] do
     authorize_request([ "admin"])

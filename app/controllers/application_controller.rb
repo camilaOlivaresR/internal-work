@@ -18,6 +18,5 @@ class ApplicationController < ActionController::Base
       redirect_to publications_path, notice: "You are not authorized to perform this action"
       end
     end
-  # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
-  allow_browser versions: :modern
+  
 end
